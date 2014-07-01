@@ -1,0 +1,54 @@
+Quiz: Lesson 3
+
+Please review this quiz, which covers lesson 3 materials.
+
+    What is HTML? What is CSS? What is Javascript?
+        HTML is markup (house frame, plumbing, wiring), CSS is look and feel (wallpaper, tiling, flooring, sheet rock, etc.), Javascript is client side dynamic scripts (furnishings and appliances).
+
+    What are the major parts of an HTTP request?
+        verb/method, url, parameters
+
+    What are the major parts of an HTTP response?
+        status code, payload/message
+
+    How do you submit an HTTP POST request, with a "username" attribute set to "bob"? What if we wanted a GET request instead?
+
+        get '/new_player' do
+          erb :new_player
+        end
+
+        post '/new_player' do
+          if params[:player_name].empty?
+            @error = "Name is required"
+            halt erb(:new_player)
+          end
+          session[:player_name] = params[:player_name].capitalize
+          redirect '/game'
+        end
+
+
+    Why is it important for us, as web developers, to understand that HTTP is a "stateless" protocol?
+        to remember that the apps need to be reconstituted with every new request sent and received
+
+    If the internet is just HTTP requests/responses, why do we only use browsers to interface with web applications? Are there any other options?
+        there are other resources
+
+    What is MVC, and why is it important?
+        Model, View, Controller. is a clear set for actions and methods
+
+The below questions are about Sinatra:
+
+    At a high level, how are requests processed?
+        with posts, erb calls, redirects, and instance variables
+
+    In the controller/action, what's the difference between rendering and redirecting?
+        'erb' renders and 'redirect' redirects
+
+    In the ERB view template, how do you show dynamic content?
+        <% %>, <%= %>, instance variables 
+
+    Given what you know about ERB templates, when do you suppose the ERB template is turned into HTML?
+        on every request
+
+    What's the role of instance variables in Sinatra?
+        set up a variable for the view templates
